@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+}
+
+.card {
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.card-header {
+    background: none;
+    border-bottom: none;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ff6f91;
+}
+
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table th, .table td {
+    vertical-align: middle !important;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(255, 111, 145, 0.1);
+}
+
+.btn-primary {
+    background-color: #ff6f91;
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ff4f71;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: #6bcf6b;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #4bb54b;
+    transform: translateY(-2px);
+}
+
+.btn-warning {
+    background-color: #ffcc29;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #e6b800;
+}
+
+.btn-danger {
+    background-color: #ff6b6b;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #ff4c4c;
+}
+
+.form-control {
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 1rem;
+}
+
+.form-check-input {
+    accent-color: #ff6f91;
+    transform: scale(1.2);
+}

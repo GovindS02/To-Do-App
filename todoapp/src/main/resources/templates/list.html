@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To-Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card p-4 mt-5">
+        <div class="card-header text-center" style="font-size:2rem; font-weight:600; color:#ff6f91;">
+            To-Do List
+        </div>
+        <div class="card-body">
+            <a class="btn btn-primary mb-3" th:href="@{/tasks/create}">Add New Task</a>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Completed</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="task : ${tasks}">
+                        <td th:text="${task.title}"></td>
+                        <td>
+                            <input type="checkbox" th:checked="${task.completed}" disabled>
+                        </td>
+                        <td>
+                            <a th:href="@{/tasks/edit/{id}(id=${task.id})}" class="btn btn-warning btn-sm">Edit</a>
+                            <!-- Delete Button triggers modal -->
+                            <button type="button" class="btn btn-danger btn-sm" 
+                                    data-bs-toggle="modal" 
+                                    th:data-bs-target="'#deleteModal' + ${task.id}">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modals -->
+<div th:each="task : ${tasks}">
+    <div class="modal fade" th:id="'deleteModal' + ${task.id}" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete the task "<span th:text="${task.title}"></span>"?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a th:href="@{/tasks/delete/{id}(id=${task.id})}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
