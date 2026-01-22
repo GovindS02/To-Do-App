@@ -49,17 +49,4 @@ Users can create, update, delete tasks and mark tasks as completed.
 
 ---
 
-## Database Configuration (Safe Public Setup)
 
-⚠️ Never commit real DB credentials in public repos.
-
-### Option A (Simple Local Setup)
-Edit `src/main/resources/application.properties`:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/todo_db
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
